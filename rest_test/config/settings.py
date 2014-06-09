@@ -53,6 +53,7 @@ class Common(Configuration):
     # Apps specific for this project go here.
     LOCAL_APPS = (
         # Your stuff: custom apps go here
+        'users',
     )
 
     # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -216,7 +217,7 @@ class Common(Configuration):
 
     ########## Custom user app defaults
     # Select the correct user model
-    # AUTH_USER_MODEL = "users.User"
+    AUTH_USER_MODEL = "users.User"
     # LOGIN_REDIRECT_URL = "users:redirect"
     ########## END Custom user app defaults
 
