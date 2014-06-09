@@ -1,0 +1,1 @@
+web: gunicorn --pythonpath="$PWD/rest_test" config.wsgi:application
