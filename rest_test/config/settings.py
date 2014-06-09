@@ -48,6 +48,7 @@ class Common(Configuration):
         'south',  # Database migration helpers:
         'crispy_forms',  # Form layouts
         'django_extensions', # Cool utilities
+        'rest_framework', # RESTFUL API
     )
 
     # Apps specific for this project go here.
@@ -212,6 +213,18 @@ class Common(Configuration):
     AUTHENTICATION_BACKENDS = (
         "django.contrib.auth.backends.ModelBackend",
     )
+
+    # REST FRAMEWORK AUTHENTICATION WITH JWT
+    REST_FRAMEWORK = {
+        'DEFAULT_PERMISSION_CLASSES': (
+            'rest_framework.permissions.IsAuthenticated',
+        ),
+        'DEFAULT_AUTHENTICATION_CLASSES': (
+            'rest_framework.authentication.SessionAuthentication',
+            'rest_framework.authentication.BasicAuthentication',
+            'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        ),
+    }
 
     ########## END AUTHENTICATION CONFIGURATION
 
