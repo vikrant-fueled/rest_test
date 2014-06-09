@@ -5,13 +5,14 @@ from django.conf.urls import url, patterns, include
 from rest_framework.urlpatterns import format_suffix_patterns
 from rest_framework.routers import DefaultRouter
 
-from .views import UserRetrieveUpdateView
+from .views import UserRetrieveUpdateView, SelfieListCreateView
 
 # Wire up our API using automatic URL routing.
 # Additionally, include login URLs for the browseable API.
 urlpatterns = format_suffix_patterns(patterns('api.views',
     url(r'^$', 'api_root', name='api_root'),
     url(r'^user/$', UserRetrieveUpdateView.as_view(), name='api_user'),
+    url(r'^selfies/$', SelfieListCreateView.as_view(), name='api_selfie'),
 ))
 
 urlpatterns += patterns('',

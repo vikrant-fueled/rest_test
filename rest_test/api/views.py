@@ -7,7 +7,8 @@ from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
 
-from .serializers import UserSerializer
+from .serializers import UserSerializer, SelfieSerializer
+from core.models import Selfie
 
 @api_view(('GET',))
 def api_root(request, format=None):
@@ -28,6 +29,7 @@ def api_root(request, format=None):
     return Response({
         'api_root': reverse('api_root', request=request, format=format),
         'user': reverse('api_user', request=request, format=format),
+        'selfie': reverse('api_selfie', request=request, format=format),
         'auth-token': reverse('api_auth_token', request=request, format=format),
     })
 
@@ -40,3 +42,10 @@ class UserRetrieveUpdateView(generics.RetrieveUpdateAPIView):
 
     def get_object(self):
         return self.request.user
+
+class SelfieListCreateView(generics.ListCreateAPIView):
+    '''
+    Endpoint to get and create `Selfies`.
+    '''
+    serializer_class = SelfieSerializer
+    model = Selfie
