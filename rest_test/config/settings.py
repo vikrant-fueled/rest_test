@@ -47,6 +47,7 @@ class Common(Configuration):
     THIRD_PARTY_APPS = (
         'south',  # Database migration helpers:
         'crispy_forms',  # Form layouts
+        'django_extensions', # Cool utilities
     )
 
     # Apps specific for this project go here.
