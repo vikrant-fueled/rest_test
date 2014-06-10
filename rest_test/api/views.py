@@ -50,3 +50,4 @@ class SelfieViewset(viewsets.ModelViewSet):
     '''
     serializer_class = SelfieSerializer
     model = Selfie
+    paginate_by = 10
