@@ -30,7 +30,7 @@ def api_root(request, format=None):
     return Response({
         'api_root': reverse('api_root', request=request, format=format),
         'user': reverse('api_user', request=request, format=format),
-        'selfie': 'http://localhost:8001/api/selfie/',
+        'selfie': 'http://10.0.1.126:8001/api/selfie/',
         'auth-token': reverse('api_auth_token', request=request, format=format),
     })
 

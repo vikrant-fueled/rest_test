@@ -19,7 +19,7 @@ urlpatterns += patterns('',
     url(r'^auth-token/', 'rest_framework_jwt.views.obtain_jwt_token', name='api_auth_token'),
 )
 
-router = DefaultRouter()
-router.register(r'selfie', SelfieViewset)
+router = DefaultRouter(trailing_slash=False)
+router.register(r'selfie/', SelfieViewset)
 
 urlpatterns += router.urls
